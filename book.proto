@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "BookService.Grpc";
+
+service BookProtoService {
+  rpc GetBookById (GetBookByIdRequest) returns (GetBookByIdResponse);
+}
+
+message GetBookByIdRequest {
+  int32 bookId = 1;
+}
+
+message GetBookByIdResponse {
+  int32 id = 1;
+  string title = 2;
+  string author = 3;
+  int32 year = 4;
+  string genre = 5;
+}

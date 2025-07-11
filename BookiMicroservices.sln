@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookService", "BookService\BookService.csproj", "{81C6D7ED-C5ED-4DF0-9FCC-B05970C1ABC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{6229F0FE-8B09-490A-B015-D43E26CB3CF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "NotificationService\NotificationService.csproj", "{484B04FD-3E91-455F-A813-164A6314B3AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentService\PaymentService.csproj", "{3CAB8C7D-6247-4448-9D34-84797BE82FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\UserService.csproj", "{1A60F5E2-0371-411C-9FEA-E33F1E0DCAA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{1B7B8851-F9F8-48E9-98B4-D3B0343E0681}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10E3CF21-5D7A-47B9-B486-7008B68DF093}"
+	ProjectSection(SolutionItems) = preProject
+		bookservice.yaml = bookservice.yaml
+		docker-compose.yml = docker-compose.yml
+		sqlserver.yaml = sqlserver.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81C6D7ED-C5ED-4DF0-9FCC-B05970C1ABC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C6D7ED-C5ED-4DF0-9FCC-B05970C1ABC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C6D7ED-C5ED-4DF0-9FCC-B05970C1ABC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C6D7ED-C5ED-4DF0-9FCC-B05970C1ABC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6229F0FE-8B09-490A-B015-D43E26CB3CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6229F0FE-8B09-490A-B015-D43E26CB3CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6229F0FE-8B09-490A-B015-D43E26CB3CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6229F0FE-8B09-490A-B015-D43E26CB3CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484B04FD-3E91-455F-A813-164A6314B3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484B04FD-3E91-455F-A813-164A6314B3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484B04FD-3E91-455F-A813-164A6314B3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484B04FD-3E91-455F-A813-164A6314B3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAB8C7D-6247-4448-9D34-84797BE82FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAB8C7D-6247-4448-9D34-84797BE82FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAB8C7D-6247-4448-9D34-84797BE82FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAB8C7D-6247-4448-9D34-84797BE82FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A60F5E2-0371-411C-9FEA-E33F1E0DCAA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A60F5E2-0371-411C-9FEA-E33F1E0DCAA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A60F5E2-0371-411C-9FEA-E33F1E0DCAA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A60F5E2-0371-411C-9FEA-E33F1E0DCAA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B7B8851-F9F8-48E9-98B4-D3B0343E0681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B7B8851-F9F8-48E9-98B4-D3B0343E0681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B7B8851-F9F8-48E9-98B4-D3B0343E0681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B7B8851-F9F8-48E9-98B4-D3B0343E0681}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

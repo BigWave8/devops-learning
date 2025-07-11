@@ -1,0 +1,85 @@
+services:
+  # rabbitmq:
+  #   image: rabbitmq:3-management
+  #   ports:
+  #     - "5672:5672"
+  #     - "15672:15672"
+  #   environment:
+  #     RABBITMQ_DEFAULT_USER: guest
+  #     RABBITMQ_DEFAULT_PASS: guest
+
+  sqlserver-book:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "YourStrong@Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - backend
+
+  sqlserver-order:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "YourStrong@Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1435:1433"
+    networks:
+      - backend
+
+  bookservice:
+    build:
+      context: .
+      dockerfile: BookService/Dockerfile
+    ports:
+      # - "5228:80"
+      - "5229:5000" # Swagger
+      - "5228:5001" # gRPC
+    depends_on:
+      - sqlserver-book
+    networks:
+      - backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  paymentservice:
+    build:
+      context: .
+      dockerfile: PaymentService/Dockerfile
+    ports:
+      - "7238:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+
+  orderservice:
+    build:
+      context: .
+      dockerfile: OrderService/Dockerfile
+    ports:
+      - "7205:80"
+    depends_on:
+      - sqlserver-order
+      - bookservice
+      - paymentservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+
+
+
+  # sqlserver-order:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   environment:
+  #     SA_PASSWORD: "YourStrong@Passw0rd"
+  #     ACCEPT_EULA: "Y"
+  #   ports:
+  #     - "1434:1433"
+  #   networks:
+  #     - backend
+
+networks:
+  backend:

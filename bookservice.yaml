@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookservice
+  template:
+    metadata:
+      labels:
+        app: bookservice
+    spec:
+      containers:
+        - name: bookservice
+          image: bookservice:latest  # Це той самий образ, який ти вже зібрав
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: DefaultConnection
+              value: "Server=sqlserver-book,1433;Database=BookDb;User Id=sa;Password=YourStrong@Passw0rd;Encrypt=False;"
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookservice
+spec:
+  type: NodePort
+  selector:
+    app: bookservice
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30001  # Через цей порт зможеш зайти в браузері
