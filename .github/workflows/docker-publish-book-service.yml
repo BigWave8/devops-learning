@@ -30,4 +30,4 @@ jobs:
         context: .
         file: BookService/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/bookservice:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/book-service:latest
