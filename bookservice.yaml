@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: bookservice
-          image: bookservice:latest  # Це той самий образ, який ти вже зібрав
-          imagePullPolicy: IfNotPresent
+          image: biginfinity8/bookservice:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           env:
@@ -35,4 +35,4 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30001  # Через цей порт зможеш зайти в браузері
+      nodePort: 30001
