@@ -17,9 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Cont
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10E3CF21-5D7A-47B9-B486-7008B68DF093}"
 	ProjectSection(SolutionItems) = preProject
-		bookservice.yaml = bookservice.yaml
+		book-service.yaml = book-service.yaml
+		order-service.yaml = order-service.yaml
+		payment-service.yaml = payment-service.yaml
 		docker-compose.yml = docker-compose.yml
-		sqlserver.yaml = sqlserver.yaml
+		book-sql-server.yaml = book-sql-server.yaml
+		order-sql-server.yaml = order-sql-server.yaml
 	EndProjectSection
 EndProject
 Global
