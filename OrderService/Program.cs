@@ -12,7 +12,7 @@ builder.Services.AddDbContext<OrderDbContext>(options =>
 
 builder.Services.AddGrpcClient<BookProtoService.BookProtoServiceClient>(o =>
 {
-    o.Address = new Uri("http://bookservice:5001");
+    o.Address = new Uri("http://bookservice");
 })
 .ConfigurePrimaryHttpMessageHandler(() =>
 {

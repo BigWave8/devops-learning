@@ -20,7 +20,7 @@ spec:
             - containerPort: 80
           env:
             - name: DefaultConnection
-              value: "Server=sqlserver-book,1433;Database=BookDb;User Id=sa;Password=YourStrong@Passw0rd;Encrypt=False;"
+              value: "Server=order-sql-server,1433;Database=OrderDb;User Id=sa;Password=YourStrong@Passw0rd;Encrypt=False;"
             - name: ASPNETCORE_ENVIRONMENT
               value: "Production"
 ---
@@ -35,4 +35,4 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30001
+      nodePort: 30002
