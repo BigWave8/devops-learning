@@ -395,3 +395,4 @@ node_modules/
 /E2E/playwright/.cache/
 /E2E/MmpTests/storageState.json
 /AppDependencies/Chromium
+/deploy-locally.bat

@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-sql-server
+spec:
+  selector:
+    app: book-sql-server
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-sql-server
+spec:
+  selector:
+    matchLabels:
+      app: book-sql-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: book-sql-server
+    spec:
+      containers:
+        - name: book-sql-server
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_SA_PASSWORD
+              value: "YourStrong@Passw0rd"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"

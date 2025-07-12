@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sqlserver-book
+  name: order-sql-server
 spec:
   selector:
-    app: sqlserver-book
+    app: order-sql-server
   ports:
     - protocol: TCP
       port: 1433
@@ -13,19 +13,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sqlserver-book
+  name: order-sql-server
 spec:
   selector:
     matchLabels:
-      app: sqlserver-book
+      app: order-sql-server
   replicas: 1
   template:
     metadata:
       labels:
-        app: sqlserver-book
+        app: order-sql-server
     spec:
       containers:
-        - name: sqlserver
+        - name: order-sql-server
           image: mcr.microsoft.com/mssql/server:2022-latest
           ports:
             - containerPort: 1433

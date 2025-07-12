@@ -8,7 +8,7 @@ services:
   #     RABBITMQ_DEFAULT_USER: guest
   #     RABBITMQ_DEFAULT_PASS: guest
 
-  sqlserver-book:
+  book-sql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       SA_PASSWORD: "YourStrong@Passw0rd"
@@ -18,7 +18,7 @@ services:
     networks:
       - backend
 
-  sqlserver-order:
+  order-sql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       SA_PASSWORD: "YourStrong@Passw0rd"
@@ -28,7 +28,7 @@ services:
     networks:
       - backend
 
-  bookservice:
+  book-service:
     build:
       context: .
       dockerfile: BookService/Dockerfile
@@ -37,13 +37,13 @@ services:
       - "5229:5000" # Swagger
       - "5228:5001" # gRPC
     depends_on:
-      - sqlserver-book
+      - book-sql-server
     networks:
       - backend
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
 
-  paymentservice:
+  payment-service:
     build:
       context: .
       dockerfile: PaymentService/Dockerfile
@@ -54,16 +54,16 @@ services:
     networks:
       - backend
 
-  orderservice:
+  order-service:
     build:
       context: .
       dockerfile: OrderService/Dockerfile
     ports:
       - "7205:80"
     depends_on:
-      - sqlserver-order
-      - bookservice
-      - paymentservice
+      - order-sql-server
+      - book-service
+      - payment-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
